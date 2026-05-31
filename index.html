@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synthetic Reality & The Erosion of Shared Truth</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #16a085;
+            --bg-color: #f4f6f7;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --border-color: #dcdde1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .survey-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 15px;
+        }
+
+        fieldset {
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 25px;
+            background-color: #fdfefe;
+        }
+
+        legend {
+            font-weight: bold;
+            color: var(--primary-color);
+            padding: 0 10px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .question-block {
+            margin-bottom: 20px;
+        }
+
+        .question-block:last-child {
+            margin-bottom: 0;
+        }
+
+        p.question-text {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .option-label {
+            display: block;
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 15px;
+            user-select: none;
+        }
+
+        /* Hide default radio/checkbox */
+        .option-label input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        /* Custom indicator */
+        .checkmark {
+            position: absolute;
+            top: 2px;
+            left: 0;
+            height: 18px;
+            width: 18px;
+            background-color: #eee;
+            border: 1px solid #bdc3c7;
+        }
+
+        /* Radio specific (round) */
+        .radio-label .checkmark {
+            border-radius: 50%;
+        }
+
+        /* Checkbox specific (square-ish) */
+        .checkbox-label .checkmark {
+            border-radius: 4px;
+        }
+
+        /* Hover effect */
+        .option-label:hover input ~ .checkmark {
+            background-color: #ccc;
+        }
+
+        /* Checked state colors */
+        .option-label input:checked ~ .checkmark {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+
+        /* Inner indicator (dots/checks) */
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        .option-label input:checked ~ .checkmark:after {
+            display: block;
+        }
+
+        /* Radio button dot style */
+        .radio-label .checkmark:after {
+            top: 5px;
+            left: 5px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: white;
+        }
+
+        /* Checkbox checkmark style */
+        .checkbox-label .checkmark:after {
+            left: 6px;
+            top: 2px;
+            width: 4px;
+            height: 9px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #1a252f;
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 10px; }
+            .survey-container { padding: 15px; }
+            fieldset { padding: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="survey-container">
+    <h1>Synthetic Reality and the Erosion of Shared Truth</h1>
+    <div class="subtitle">Field Interview Questionnaire — Uganda</div>
+
+    <form id="truthSurvey" onsubmit="handleSubmit(event)" action="mailto:jethro256qwerty@gmail.com" method="POST" enctype="txt/plain">
+
+        <fieldset>
+            <legend>Location of Interview</legend>
+            <div class="question-block">
+                <label class="option-label radio-label">
+                    <input type="radio" name="location" value="Corporate/Infrastructure" required>
+                    <span class="checkmark"></span>
+                    Corporate/Infrastructure Environment
+                </label>
+                <label class="option-label radio-label">
+                    <input type="radio" name="location" value="Tech Hub/University">
+                    <span class="checkmark"></span>
+                    Tech Hub / University Space (e.g., Makerere/Innovation Village)
+                </label>
+                <label class="option-label radio-label">
+                    <input type="radio" name="location" value="Public Transport/Markets">
+                    <span class="checkmark"></span>
+                    Public Transport & Markets (e.g., Old Taxi Park/Kikuubo)
+                </label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Part A: Background Info</legend>
+            
+            <div class="question-block">
+                <p class="question-text">1. Age Group:</p>
+                <label class="option-label radio-label">
+                    <input type="radio" name="age_group" value="18-25" required>
+                    <span class="checkmark"></span>
+                    18–25
+                </label>
+                <label class="option-label radio-label">
+                    <input type="radio" name="age_group" value="26-40">
+                    <span class="checkmark"></span>
+                    26–40
+                </label>
+                <label class="option-label radio-label">
+                    <input type="radio" name="age_group" value="41+">
+                    <span class="checkmark"></span>
+                    41+
+                </label>
+            </div>
+
+            <div class="question-block">
+                <p class="question-text">2. Main source of daily news/media (Select all that apply):</p>
+                <label class="option-label checkbox-label">
+                    <input type="checkbox" name="media_source" value="WhatsApp">
+                    <span class="checkmark"></span>
+                    WhatsApp Groups
+                </label>
+                <label class="option-label checkbox-label">
+                    <input type="checkbox" name="media_source" value="TikTok/Instagram">
+                    <span class="checkmark"></span>
+                    TikTok / Instagram
+                </label>
+                <label class="option-label checkbox-label">
+                    <input type="checkbox" name="media_source" value="Twitter_X">
+                    <span class="checkmark"></span>
+                    Twitter (X)
+                </label>
+                <label class="option-label checkbox-label">
+                    <input type="checkbox" name="media_source" value="Radio/TV">
+                    <span class="checkmark"></span>
+                    Radio / TV
+                </label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Part B: The Tech & Trust Test</legend>
+
+            <div class="question-block">
+                <p class="question-text">3. Have you ever seen a video or heard a voice note on social media that looked 100% real, only to find out later it was completely made by a computer (AI)?</p>
+                <label class="option-label radio-label">
+                    <input type="radio" name="q3" value="Yes, many times" required>
+                    <span class="checkmark"></span>
+                    Yes, many times
+                </label>
+                <label class="option-label radio-label">
+                    <input type="radio" name="q3" value="Yes, once or twice">
+                    <span class="checkmark"></span>
+                    Yes, once or twice
+                </label>
+                <label class="option-label radio-label">
+                    <input type="radio" name="q3" value="No, never">
+                    <span class="checkmark"></span>
+                    No, never
+                </label>
+                <label class="option-label radio-label">
+                    <input type="radio" name="q3" value="Not sure if can tell difference">
+                    <span class="checkmark"></span>
+                    I am not sure if I can even tell the difference
+                </label>
+            </div>
+
+            <div class="question-block">
+                <p class="question-text">4. "If a video shows a known politician or businessman speaking, I automatically believe it is true because a camera cannot fabricate a human voice and face from scratch."</p>
+                <label class="option-label radio-label">
+                    <input type="radio" name="q4" value="Strongly Agree" required>
+                    <span class="checkmark"></span>
+                    Strongly Agree
+                </label>
+                <label class="option-label radio-label">
+                    <input type="radio" name="q4" value="Agree">
+                    <span class="checkmark"></span>
+                    Agree
+                </label>
+                <label class="option-label radio-label">
+                    <input type="radio" name="q4" value="Disagree">
+                    <span class="checkmark"></span>
+                    Disagree
+                </label>
+                <label class="option-label radio-label">
+                    <input type="radio" name="q4" value="Strongly Disagree">
+                    <span class="checkmark"></span>
+                    Strongly Disagree
+                </label>
+            </div>
+
+            <div class="question-block">
+                <p class="question-text">5. How worried are you that AI-generated voice clones or fake videos will be used to execute financial scams or corporate fraud in Uganda?</p>
+                <label class="option-label radio-label">
+                    <input type="radio" name="q5" value="Deeply worried" required>
+                    <span class="checkmark"></span>
+                    Deeply worried—our current security cannot stop it
+                </label>
+                <label class="option-label radio-label">
+                    <input type="radio" name="q5" value="Moderately worried">
+                    <span class="checkmark"></span>
+                    Moderately worried—it is a threat but we can manage
+                </label>
+                <label class="option-label radio-label">
+                    <input type="radio" name="q5" value="Not worried at all">
+                    <span class="checkmark"></span>
+                    Not worried at all
+                </label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Part C: The Accountability Challenge (The Liar's Dividend)</legend>
+
+            <div class="question-block">
+                <p class="question-text">6. Imagine a local leader or an employee is caught on a clear video doing something corrupt or illegal. If they claim, "That video is an AI deepfake, it is not me," what will your reaction be?</p>
+                <label class="option-label radio-label">
+                    <input type="radio" name="q6" value="Believe them" required>
+                    <span class="checkmark"></span>
+                    I will believe them because AI can fake anything these days
+                </label>
+                <label class="option-label radio-label">
+                    <input type="radio" name="q6" value="Doubt and wait for verification">
+                    <span class="checkmark"></span>
+                    I will doubt the video and wait for tech experts to verify it
+                </label>
+                <label class="option-label radio-label">
+                    <input type="radio" name="q6" value="Assume it is an excuse">
+                    <span class="checkmark"></span>
+                    I will assume they are just using AI as an excuse to escape trouble
+                </label>
+            </div>
+
+            <div class="question-block">
+                <p class="question-text">7. Because of how easy it is to fake photos, videos, and audios using artificial intelligence, has your overall trust in local investigative journalism and news platforms changed?</p>
+                <label class="option-label radio-label">
+                    <input type="radio" name="q7" value="Trust news LESS now" required>
+                    <span class="checkmark"></span>
+                    Yes, I trust the news much LESS now
+                </label>
+                <label class="option-label radio-label">
+                    <input type="radio" name="q7" value="Trust level is same">
+                    <span class="checkmark"></span>
+                    No, my level of trust is the same
+                </label>
+                <label class="option-label radio-label">
+                    <input type="radio" name="q7" value="Stopped following completely">
+                    <span class="checkmark"></span>
+                    I have stopped following the news completely
+                </label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Part D: Solutions & Protection</legend>
+
+            <div class="question-block">
+                <p class="question-text">8. Who do you think should carry the biggest responsibility for stopping harmful AI fakes from spreading in our digital spaces?</p>
+                <label class="option-label radio-label">
+                    <input type="radio" name="q8" value="The Government" required>
+                    <span class="checkmark"></span>
+                    The Government (through strict laws and police enforcement)
+                </label>
+                <label class="option-label radio-label">
+                    <input type="radio" name="q8" value="The Tech Companies">
+                    <span class="checkmark"></span>
+                    The Tech Companies (by putting labels/watermarks on AI content)
+                </label>
+                <label class="option-label radio-label">
+                    <input type="radio" name="q8" value="The Citizens">
+                    <span class="checkmark"></span>
+                    The Citizens (by upgrading their own skepticism and verifying before sharing)
+                </label>
+            </div>
+
+            <div class="question-block">
+                <p class="question-text">9. Would you support a law that makes it mandatory for every tech platform to show a "digital seal" or "nutrition label" proving exactly where a photo or video came from?</p>
+                <label class="option-label radio-label">
+                    <input type="radio" name="q9" value="Yes, urgently" required>
+                    <span class="checkmark"></span>
+                    Yes, urgently
+                </label>
+                <label class="option-label radio-label">
+                    <input type="radio" name="q9" value="No, complex/limits speech">
+                    <span class="checkmark"></span>
+                    No, it might limit free speech or be too complicated
+                </label>
+                <label class="option-label radio-label">
+                    <input type="radio" name="q9" value="Don't know">
+                    <span class="checkmark"></span>
+                    I don't know
+                </label>
+            </div>
+        </fieldset>
+
+        <button type="submit" class="submit-btn">Submit Questionnaire</button>
+    </form>
+</div>
+
+<script>
+    function handleSubmit(event) {
+        event.preventDefault();
+        
+        // Gather Form Data
+        const formData = new FormData(event.target);
+        const data = {};
+        
+        formData.forEach((value, key) => {
+            if (key === 'media_source') {
+                if (!data[key]) data[key] = [];
+                data[key].push(value);
+            } else {
+                data[key] = value;
+            }
+        });
+
+        // Current temporary action: log/alert the data
+        console.log("Form Data Collected:", data);
+        alert("Survey Submitted Successfully!\nCheck the developer console to view data structure.");
+        
+        // Optional: Reset form after submit
+        // event.target.reset();
+    }
+</script>
+
+</body>
+</html>
